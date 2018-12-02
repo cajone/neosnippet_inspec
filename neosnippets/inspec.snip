@@ -20,7 +20,7 @@ snippet apt
 abbr create apt inspec
   describe apt('${1:#:path}') do
     it { should exist }
-    it { should be_enabled}
+    it { should be_enabled }
   end
 ${0}
 
@@ -54,4 +54,24 @@ abbr create command inspec
   end
 ${0}
 
+snippet cpan 
+abbr create cpan inspec
+  describe cpan('${1:#:package_name}') do
+    it { should be_installed }
+  end
+${0}
+
+snippet cran 
+abbr create cran inspec
+  describe cran('${1:#:package_name}') do
+    it { should be_installed }
+  end
+${0}
+
+
+
+
+
 # vim: ts=2 noexpandtab
+
+
