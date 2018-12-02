@@ -5,14 +5,14 @@ include ruby.snip
 snippet apache     
 abbr create apache inspec
   describe apache do
-    its('${1:#:setting_name}') { should cmp '${2:#:value'} }
+    its('${1:#:setting_name}') { should cmp '${2:#:value}' }
   end
 ${0}
 
 snippet apache_conf
 abbr create apache_conf inspec
   describe apache do
-    its('${1:#:setting_name}') { should cmp '${2:#:value'} }
+    its('${1:#:setting_name}') { should cmp '${2:#:value}' }
   end
 ${0}
 
@@ -50,7 +50,7 @@ snippet command
 abbr create command inspec
   describe command('${1:#:command}') do
     it { should exist }
-    its('${2:#:property}') { should cmp '${3:#:value'} }
+    its('${2:#:property}') { should cmp '${3:#:value}' }
   end
 ${0}
 
