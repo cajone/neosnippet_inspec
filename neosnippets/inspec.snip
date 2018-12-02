@@ -79,6 +79,18 @@ abbr create crontab inspec
 	end
 ${0}
 
+# Add snippet for csv
+
+# Add snippet for dh_params
+
+snippet directory
+abbr create directory inspec
+  describe directory('${1:#:path}') do
+    it { should exist }
+    its('${2:#:property}') { should cmp '${3:#:value}' }
+  end
+${0}
+
 
 # vim: ts=2 noexpandtab
 
