@@ -1,24 +1,5 @@
 include ruby.snip
 
-snippet cajo_dir
-abbr create directory
-	directory '${1:#:directory_name}' do
-		owner '${2:#:owner}'
-		group '${3:#:group}'
-		mode ${4:00755}
-		action ${5::create}
-	end
-	${0}
-
-snippet bash
-abbr create bash inspec
-  describe bash('${1:#:command}') do
-    it { should exist }
-    its('exit_status') { should eq 0 }
-  end
-  ${0}
-
-
 # Added snippet for aide_conf
 
 snippet apache     
@@ -26,6 +7,51 @@ abbr create apache inspec
   describe apache do
     its('${1:#:setting_name}') { should cmp '${2:#:value'} }
   end
-  ${0}
+${0}
+
+snippet apache_conf
+abbr create apache_conf inspec
+  describe apache do
+    its('${1:#:setting_name}') { should cmp '${2:#:value'} }
+  end
+${0}
+
+snippet apt
+abbr create apt inspec
+  describe apt('${1:#:path}') do
+    it { should exist }
+    it { should be_enabled}
+  end
+${0}
+
+# Add snippet for audit_policy
+
+# Add snippet for auditd
+
+# Add snippet for auditd_conf
+
+snippet bash
+abbr create bash inspec
+  describe bash('${1:#:command}') do
+    it { should exist }
+    its('exit_status') { should eq 0 }
+  end
+${0}
+
+# Add snippet for bond
+
+# Add snippet for bridge
+
+# Add snippet for bsd_service
+
+# Add snippet for chocolatey_package
+
+snippet command 
+abbr create command inspec
+  describe command('${1:#:command}') do
+    it { should exist }
+    its('${2:#:property}') { should cmp '${3:#:value'} }
+  end
+${0}
 
 
