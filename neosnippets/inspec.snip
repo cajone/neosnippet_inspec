@@ -68,8 +68,16 @@ abbr create cran inspec
   end
 ${0}
 
-
-
+snippet crontab
+abbr create crontab inspec
+  describe crontab('${1:#:user}') do
+		its('${2:#:command}') { should include '${3:#:path}' }
+		its('hours') { should cmp '*' }
+		its('minutes') { xhould cmp '*' }
+		its('doys') { xhould cmp '*' }
+		its('months') { xhould cmp '*' }
+	end
+${0}
 
 
 # vim: ts=2 noexpandtab
