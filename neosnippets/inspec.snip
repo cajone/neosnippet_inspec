@@ -91,6 +91,36 @@ abbr create directory inspec
   end
 ${0}
 
+snippet docker_containers
+abbr test for exisitance of a container
+  describe docker.containers do
+    its('${1:#:images}') { should_not include '${2:#:value}' }
+  end
+${0}
+
+snippet docker_containers_where
+abbr test for exisitance of a running container
+  describe docker.containers.where { names == '${1:#:name}' } do
+		it { should be_running }
+  end
+${0}
+
+snippet docker_images
+abbr test for exisitance of an image
+  describe docker.image do
+    its('${1:#:repositories}') { should_not include '${2:#:image}' }
+  end
+${0}
+
+snippet docker_images_where
+abbr test for exisitance of a image
+  describe docker.images.where { repositories == '${1:#:repo}' } do
+		it { should_not exist }
+  end
+${0}
+
+
+
 
 # vim: ts=2 noexpandtab
 
