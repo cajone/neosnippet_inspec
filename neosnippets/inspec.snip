@@ -139,8 +139,19 @@ abbr test for exisitance of a docker service
   end
 ${0}
 
+snippet eleasticsearch
+abbr test elasticsearch property
+  describe elasticsearch do
+    its('${1:#:property}') { should cmp '${2:#:value}' }
+  end
+${0}
 
-
+snippet eleasticsearch_where
+abbr test eleasticsearch_where property
+  describe eleasticsearch.where { node_name == '${1:#:one-off-node}' } do
+    its('${1:#:version}') { should eq '${2:#:value}' }
+  end
+${0}
 
 
 
