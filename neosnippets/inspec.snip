@@ -119,6 +119,28 @@ abbr test for exisitance of a image
   end
 ${0}
 
+snippet docker_plugin
+abbr test for exisitance of a docker plugin
+  describe docker_plugin('${1:#:repo}') do
+		it { should exist }
+		its('$(2:#:id}') { should_not eq '${3:#:hash}' }
+		its('${4:#:version}') { should eq '${5:#:num}' }
+		it { should be_enabled }
+  end
+${0}
+
+snippet docker_service
+abbr test for exisitance of a docker service 
+  describe docker_service('${1:#:repo}') do
+		it { should exist }
+		its('$(2:#:id}') { should_not eq '${3:#:hash}' }
+		its('${4:#:repo}') { should eq '${5:#:name}' }
+		its('${4:#:tag}') { should eq '${5:#:tag_version}' }
+  end
+${0}
+
+
+
 
 
 
