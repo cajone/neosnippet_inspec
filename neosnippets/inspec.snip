@@ -133,7 +133,7 @@ snippet docker_service
 abbr test for exisitance of a docker service 
   describe docker_service('${1:#:repo}') do
 		it { should exist }
-		its('$(2:#:id}') { should_not eq '${3:#:hash}' }
+		its('${2:#:id}') { should_not eq '${3:#:hash}' }
 		its('${4:#:repo}') { should eq '${5:#:name}' }
 		its('${6:#:tag}') { should eq '${7:#:tag_version}' }
   end
@@ -163,6 +163,16 @@ abbr test etc_fstab file
 		its('${10:#:file_system_options}') { should cmp '${11:#:list}' }
 	end
 ${0}
+
+snippet etc_group
+abbr test etc_group file
+	describe etc_group.where(item: '${1:#:value}') do
+		its('${2:#:gids}') { should_not contain_duplicates } 
+		its('${3:#:groups}') { should include '${4:#:users_name}' }
+		its('${5:#:users}') { should cmp '${6:#:users_name}' }
+	end
+${0}
+
 
 # vim: ts=2 noexpandtab
 
