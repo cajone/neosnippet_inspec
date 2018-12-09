@@ -135,7 +135,7 @@ abbr test for exisitance of a docker service
 		it { should exist }
 		its('$(2:#:id}') { should_not eq '${3:#:hash}' }
 		its('${4:#:repo}') { should eq '${5:#:name}' }
-		its('${4:#:tag}') { should eq '${5:#:tag_version}' }
+		its('${6:#:tag}') { should eq '${7:#:tag_version}' }
   end
 ${0}
 
@@ -149,11 +149,20 @@ ${0}
 snippet eleasticsearch_where
 abbr test eleasticsearch_where property
   describe eleasticsearch.where { node_name == '${1:#:one-off-node}' } do
-    its('${1:#:version}') { should eq '${2:#:value}' }
+    its('${2:#:version}') { should eq '${3:#:value}' }
   end
 ${0}
 
-
+snippet etc_fstab
+abbr test etc_fstab file
+	describe etc_fstab.where { device_name == '${1:#:value}' } do
+		its('${2:#:mount_point}') { should cmp'${3:#:hostname}' }
+		its('${4:#:file_system_type}') { should cmp '${5:#:list}' }
+		its('${6:#:mount_options}') { should cmp '${7:#:list}' }
+		its('${8:#:dump_options}') { should cmp '${9:#:list}' }
+		its('${10:#:file_system_options}') { should cmp '${11:#:list}' }
+	end
+${0}
 
 # vim: ts=2 noexpandtab
 
